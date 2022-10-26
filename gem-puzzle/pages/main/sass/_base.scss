@@ -1,0 +1,408 @@
+//$k-maxWidth: 0.2;
+$k-1921: 0.4;
+$k-1600: 0.8;
+$k-1280: 1;
+$k-768: 1.5;
+$k-320: 2;
+
+$k-tile-8x8: 0.5;
+$k-tile-7x7: 0.57;
+$k-tile-6x6: 0.67;
+$k-tile-5x5: 0.8;
+$k-tile-4x4: 1;
+$k-tile-3x3: 1.33;
+
+@mixin sizeTile($k) {
+    
+}
+
+@mixin global($k) {
+    main {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    
+    h1 {
+        text-align: center;
+        font-size: 4vw * $k;
+        margin-bottom: 2vw * $k;
+        background: #1DCFB1;
+        background: -webkit-linear-gradient(to right, #1DCFB1 50%, #CA34CF 100%);
+        background: -moz-linear-gradient(to right, #1DCFB1 50%, #CA34CF 100%);
+        background: linear-gradient(to right, #1DCFB1 50%, #CA34CF 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    
+    }
+    
+    .game-buttons {
+        display: flex;
+        width: 36vw * $k;
+        margin: 0 auto;
+        justify-content: space-around;   
+        
+    }
+    
+    .game-indicators {
+        display: flex;
+        width: 36vw * $k;
+        margin: 0 auto;
+        justify-content: space-around;
+        margin-top: 1.2vw * $k;
+        margin-bottom: 0.3vw * $k;
+        color: rgb(42, 42, 42);
+    }
+    
+    .game-indicators-moves, .game-indicators-time {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.4vw * $k;
+        font-weight: 500;
+    }
+    
+    .game-indicators-moves__value {
+        margin-left: 1.2vw * $k;
+    }
+    
+    .game-indicators-time__value {
+        margin-left: 0.5vw * $k;
+    }
+    
+    .game-indicators-moves {
+        margin-left: 6vw * $k;
+    }
+    
+    .game-indicators-time {
+        margin-right: 6vw * $k;
+    }
+    
+    .game-indicators-moves__value, .game-indicators-time__value {
+        font-size: 2.2vw * $k;
+        font-weight: 500;
+    }
+    
+    .game-buttons-button {
+        display: flex;
+        font-size: 1.6vw * $k;
+        font-weight: 400;
+        padding: 0.6vw * $k 1vw * $k 0.6vw * $k 1vw * $k;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background-color: rgb(0, 134, 144);
+        border-radius: 4px;
+        cursor: pointer;    
+    }
+    
+    .game-buttons-button:hover {
+        background-color: rgb(0, 97, 104);
+    }
+    
+    .game-board-wrapper {    
+        border: rgb(163, 0, 0) 1px solid;
+    }
+    
+    .game-board {
+        width: fit-content;
+        position: relative;    
+        display: grid;
+        margin: 0 auto;
+        //height: 36,01vw * $k;
+        //grid-template-columns : repeat(4, 1fr);
+        background-color: lightgray;
+        border: rgb(161, 161, 161) 1px solid;
+    }
+
+    .game-board3 {
+        grid-template-columns : repeat(3, 1fr);
+    }
+
+    .game-board4 {
+        grid-template-columns : repeat(4, 1fr);
+    }
+
+    .game-board5 {
+        grid-template-columns : repeat(5, 1fr);
+    }
+
+    .game-board6 {
+        grid-template-columns : repeat(6, 1fr);
+    }
+
+    .game-board7 {
+        grid-template-columns : repeat(7, 1fr);
+    }
+
+    .game-board8 {
+        grid-template-columns : repeat(8, 1fr);
+    }
+    
+    .game-board__tile_wrapper {    
+        position: relative;
+        transition-duration: 0.2s;
+    }
+    
+    .game-board__tile {    
+        border: rgb(161, 161, 161) 1px solid;
+        width: 9vw * $k * $k-tile-4x4;
+        height: 9vw * $k * $k-tile-4x4;
+        font-size: 3vw * $k * $k-tile-4x4;
+        display: grid;    
+        justify-content: center;
+        align-items: center;
+        color: grey;
+        background-color: white;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-in-out;
+        cursor: pointer;
+    }
+    
+    .game-board__tile_empty {
+        background-color: lightgray;
+        color: lightgray;
+    }
+    
+    .shift-bottom {
+        position: absolute;
+        margin-top: 9vw * $k * $k-tile-8x8;
+        z-index: 1000;
+    }
+    
+    .shift-top {
+        margin-top: -9vw * $k * $k-tile-8x8;
+    }
+    
+    .shift-left {
+        margin-left: -9vw * $k * $k-tile-8x8;
+    }
+    
+    .shift-right {
+        position: absolute;
+        margin-left: 9vw * $k * $k-tile-8x8;
+        z-index: 1000;    
+    }
+
+    .game-board__tile3 {    
+        width: 9vw * $k * $k-tile-3x3;
+        height: 9vw * $k * $k-tile-3x3;
+        font-size: 3vw * $k * $k-tile-3x3;
+    }
+    
+    .shift-bottom3 {
+        position: absolute;        
+        z-index: 1000;  
+        margin-top: 9vw * $k * $k-tile-3x3;        
+    }
+    
+    .shift-top3 {
+        margin-top: -9vw * $k * $k-tile-3x3;
+    }
+    
+    .shift-left3 {
+        margin-left: -9vw * $k * $k-tile-3x3;
+    }
+    
+    .shift-right3 { 
+        position: absolute;        
+        z-index: 1000;      
+        margin-left: 9vw * $k * $k-tile-3x3;           
+    }
+
+    .game-board__tile4 {
+        width: 9vw * $k * $k-tile-4x4;
+        height: 9vw * $k * $k-tile-4x4;
+        font-size: 3vw * $k * $k-tile-4x4;
+    }
+    
+    .shift-bottom4 {
+        position: absolute;        
+        z-index: 1000;
+        margin-top: 9vw * $k * $k-tile-4x4;   
+    }
+    
+    .shift-top4 {
+        margin-top: -9vw * $k * $k-tile-4x4;
+    }
+    
+    .shift-left4 {
+        margin-left: -9vw * $k * $k-tile-4x4;
+    }
+    
+    .shift-right4 {
+        position: absolute;        
+        z-index: 1000;      
+        margin-left: 9vw * $k * $k-tile-4x4;        
+    }
+
+    .game-board__tile5 {
+        width: 9vw * $k * $k-tile-5x5;
+        height: 9vw * $k * $k-tile-5x5;
+        font-size: 3vw * $k * $k-tile-5x5;
+    }
+
+    .shift-bottom5 {
+        position: absolute;        
+        z-index: 1000;   
+        margin-top: 9vw * $k * $k-tile-5x5;        
+    }
+    
+    .shift-top5 {
+        margin-top: -9vw * $k * $k-tile-5x5;
+    }
+    
+    .shift-left5 {
+        margin-left: -9vw * $k * $k-tile-5x5;
+    }
+    
+    .shift-right5 {
+        position: absolute;        
+        z-index: 1000;      
+        margin-left: 9vw * $k * $k-tile-5x5;           
+    }
+
+    .game-board__tile6 {    
+        width: 9vw * $k * $k-tile-6x6;
+        height: 9vw * $k * $k-tile-6x6;
+        font-size: 3vw * $k * $k-tile-6x6;
+    }
+
+    .shift-bottom6 {    
+        position: absolute;        
+        z-index: 1000;
+        margin-top: 9vw * $k * $k-tile-6x6;        
+    }
+    
+    .shift-top6 {
+        margin-top: -9vw * $k * $k-tile-6x6;
+    }
+    
+    .shift-left6 {
+        margin-left: -9vw * $k * $k-tile-6x6;
+    }
+    
+    .shift-right6 { 
+        position: absolute;        
+        z-index: 1000;      
+        margin-left: 9vw * $k * $k-tile-6x6;           
+    }
+
+    .game-board__tile7 {    
+        width: 9vw * $k * $k-tile-7x7;
+        height: 9vw * $k * $k-tile-7x7;
+        font-size: 3vw * $k * $k-tile-7x7;
+    }
+
+    .shift-bottom7 { 
+        position: absolute;        
+        z-index: 1000;   
+        margin-top: 9vw * $k * $k-tile-7x7;        
+    }
+    
+    .shift-top7 {
+        margin-top: -9vw * $k * $k-tile-7x7;
+    }
+    
+    .shift-left7 {
+        margin-left: -9vw * $k * $k-tile-7x7;
+    }
+    
+    .shift-right7 { 
+        position: absolute;        
+        z-index: 1000;      
+        margin-left: 9vw * $k * $k-tile-7x7;           
+    }
+
+    .game-board__tile8 {    
+        width: 9vw * $k * $k-tile-8x8;
+        height: 9vw * $k * $k-tile-8x8;
+        font-size: 3vw * $k * $k-tile-8x8;
+    }
+
+    .shift-bottom8 { 
+        position: absolute;        
+        z-index: 1000;   
+        margin-top: 9vw * $k * $k-tile-8x8;        
+    }
+    
+    .shift-top8 {
+        margin-top: -9vw * $k * $k-tile-8x8;
+    }
+    
+    .shift-left8 {
+        margin-left: -9vw * $k * $k-tile-8x8;
+    }
+    
+    .shift-right8 {  
+        position: absolute;        
+        z-index: 1000;     
+        margin-left: 9vw * $k * $k-tile-8x8;           
+    }
+    
+    .game-current-size, .game-others-sizes  {
+        margin-top: 0.5vw * $k;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2vw * $k;
+        color: rgb(80, 80, 80);
+    }
+    
+    .game-current-size__text, .game-others-sizes__text {
+        margin-right: 1vw * $k;
+    }
+    
+    .game-current-size__value, .game-others-sizes__value {
+        font-size: 1.5vw * $k;
+    }
+    
+    .game-others-sizes__value {
+        margin-right: 0.4vw * $k;
+        text-decoration: underline;
+        cursor: pointer;
+        color: #1d7fcf;
+    }    
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;  
+    margin: 0 auto;
+}
+
+@include global($k-1921);
+
+
+@media screen and (max-width: 1921px) {
+    @include global($k-1921);
+
+}
+
+@media screen and (max-width: 1600px) {
+    @include global($k-1600);
+
+}
+
+@media screen and (max-width: 1280px) {
+    @include global($k-1280);
+
+}
+
+@media screen and (max-width: 768px) {
+    @include global($k-768);
+
+}
+
+@media screen and (max-width: 320px) {
+    @include global($k-320);
+
+}

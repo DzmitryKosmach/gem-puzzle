@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gem Puzzle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="style.css"
+      type="text/css"
+      media="screen, projection"
+    />
+  </head>
+  <body>
+    <main>
+      <h1>Gem Puzzle</h1>
+      <div class="game">
+        <div class="game-buttons">
+          <div id="start" class="game-buttons-button">Shuffle and start</div>
+          <div id="stop" class="game-buttons-button">Stop</div>
+          <div id="save" class="game-buttons-button">Save</div>
+          <div id="results" class="game-buttons-button">Results</div>
+        </div>
+
+        <div class="game-indicators">
+          <div class="game-indicators-moves">
+            <div class="game-indicators__text">Moves:</div>
+            <div class="game-indicators-moves__value">0</div>
+          </div>
+
+          <div class="game-indicators-time">
+            <div class="game-indicators__text">Time:</div>
+            <div class="game-indicators-time__value">00:00</div>
+          </div>
+        </div>
+
+        <div class="game-board-wrapper">
+          <div class="game-board game-board4"></div>
+        </div>
+
+        <div class="game-current-size">
+          <p class="game-current-size__text">Frame size:</p>
+          <p class="game-current-size__value">4x4</p>
+        </div>
+
+        <div class="game-others-sizes">
+          <p class="game-others-sizes__text">Other sizes:</p>
+
+          <p class="game-others-sizes__value" data-value="3">3x3</p>
+          <p class="game-others-sizes__value" data-value="4">4x4</p>
+          <p class="game-others-sizes__value" data-value="5">5x5</p>
+          <p class="game-others-sizes__value" data-value="6">6x6</p>
+          <p class="game-others-sizes__value" data-value="7">7x7</p>
+          <p class="game-others-sizes__value" data-value="8">8x8</p>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="./script.js"></script>
+</html>
